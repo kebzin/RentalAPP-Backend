@@ -1,9 +1,15 @@
 const mongoose = require('mongoose')
-const MONGO_URI = "mongodb+srv://kebba:Howareyoudoing1@rentalapp.9p5ry7s.mongodb.net/?retryWrites=true&w=majority"
+const dotenv = require('dotenv')
+
+
+// configuring dotenv
+dotenv.config({path:`config.env`})
+
+//  creating mongodb connection
 const connectDB = async ()=>{
     try {
         // mongodb connection
-        const conn = await mongoose.connect(MONGO_URI,{
+        const conn = await mongoose.connect(process.env.MONGO_URI,{
             // useNewUriParser: true,
             // useUnifiedTopology: true,
             // useFindAndModify: false,
